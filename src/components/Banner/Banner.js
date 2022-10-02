@@ -3,7 +3,18 @@ import Carousel from "./Carousel";
 
 const useStyles = makeStyles((theme) => ({
   banner: {
-    backgroundImage: "url(./banner2.jpg)",
+    backgroundImage: "url(./banner-1.jpg)",
+    backgroundSize: "cover",
+    backgroundPosition: "center",
+    overflow: "hidden",
+    position: "relative",
+  },
+  overlay:{
+    backgroundColor: "black",
+    position: "absolute",
+    width: "100%",
+    height: "100%",
+    opacity: .50,
   },
   bannerContent: {
     height: 400,
@@ -18,6 +29,8 @@ const useStyles = makeStyles((theme) => ({
     flexDirection: "column",
     justifyContent: "center",
     textAlign: "center",
+    position: "relative",
+    zIndex: 2,
   },
   carousel: {
     height: "50%",
@@ -31,6 +44,7 @@ function Banner() {
 
   return (
     <div className={classes.banner}>
+      <div className={classes.overlay}></div>
       <Container className={classes.bannerContent}>
         <div className={classes.tagline}>
           <Typography
@@ -41,7 +55,7 @@ function Banner() {
               fontFamily: "Montserrat",
             }}
           >
-            Crypto Hunter
+            Crypto Tracker
           </Typography>
           <Typography
             variant="subtitle2"

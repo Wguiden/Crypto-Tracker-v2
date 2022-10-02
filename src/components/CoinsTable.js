@@ -16,6 +16,7 @@ import {
   Table,
   Paper,
 } from "@material-ui/core";
+
 import axios from "axios";
 import { CoinList } from "../config/api";
 import { useHistory } from "react-router-dom";
@@ -44,7 +45,7 @@ export default function CoinsTable() {
     },
     pagination: {
       "& .MuiPaginationItem-root": {
-        color: "gold",
+        color: "rgb(14, 203, 129)",
       },
     },
   });
@@ -85,7 +86,7 @@ export default function CoinsTable() {
 
   return (
     <ThemeProvider theme={darkTheme}>
-      <Container style={{ textAlign: "center" }}>
+      <Container style={{ textAlign: "center", position: "relative", zIndex: 2 }}>
         <Typography
           variant="h4"
           style={{ margin: 18, fontFamily: "Montserrat" }}
@@ -100,10 +101,10 @@ export default function CoinsTable() {
         />
         <TableContainer component={Paper}>
           {loading ? (
-            <LinearProgress style={{ backgroundColor: "gold" }} />
+            <LinearProgress style={{ backgroundColor: "rgb(14, 203, 129)" }} />
           ) : (
             <Table aria-label="simple table">
-              <TableHead style={{ backgroundColor: "#EEBC1D" }}>
+              <TableHead style={{ backgroundColor: "rgb(14, 203, 129)" }}>
                 <TableRow>
                   {["Coin", "Price", "24h Change", "Market Cap"].map((head) => (
                     <TableCell
@@ -164,7 +165,9 @@ export default function CoinsTable() {
                         </TableCell>
                         <TableCell align="right">
                           {symbol}{" "}
-                          {numberWithCommas(row.current_price.toFixed(2))}
+                          {symbol==="ETH" ? row.current_price.toFixed(8)
+                            :  numberWithCommas(row.current_price.toFixed(2))
+                          }
                         </TableCell>
                         <TableCell
                           align="right"

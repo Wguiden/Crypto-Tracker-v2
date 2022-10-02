@@ -6,18 +6,20 @@ import {
   Toolbar,
   Typography,
 } from "@material-ui/core";
+
 import {
   createTheme,
   makeStyles,
   ThemeProvider,
 } from "@material-ui/core/styles";
+
 import { useHistory } from "react-router-dom";
 import { CryptoState } from "../CryptoContext";
 
 const useStyles = makeStyles((theme) => ({
   title: {
     flex: 1,
-    color: "gold",
+    color: "rgb(14, 203, 129)",
     fontFamily: "Montserrat",
     fontWeight: "bold",
     cursor: "pointer",
@@ -49,7 +51,7 @@ function Header() {
               variant="h6"
               className={classes.title}
             >
-              Crypto Hunter
+              Crypto Tracker
             </Typography>
             {/* <Button color="inherit">Login</Button> */}
             <Select
@@ -61,7 +63,7 @@ function Header() {
               onChange={(e) => setCurrency(e.target.value)}
             >
               <MenuItem value={"USD"}>USD</MenuItem>
-              <MenuItem value={"INR"}>INR</MenuItem>
+              <MenuItem value={"ETH"}>ETH</MenuItem>
             </Select>
           </Toolbar>
         </Container>
