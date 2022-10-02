@@ -66,7 +66,7 @@ const Carousel = () => {
           </span>
         </span>
         <span style={{ fontSize: 22, fontWeight: 500 }}>
-          {symbol} {symbol == "ETH" ? coin?.current_price.toFixed(8)
+          {symbol} {symbol === "ETH" ? coin?.current_price.toFixed(8)
             : numberWithCommas(coin?.current_price.toFixed(2))
           }
         </span>
